@@ -1,0 +1,10 @@
+import { createDbClient } from "../../../shared/db/client.js";
+import { logInfo } from "../../../shared/logging/logger.js";
+
+const db = createDbClient();
+
+export async function handler() {
+  logInfo("payments handler invoked");
+  await db.query("select 1");
+  return { service: "payments", ok: true };
+}
